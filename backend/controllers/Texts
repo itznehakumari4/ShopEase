@@ -1,0 +1,2 @@
+The controllers here are the APIs that are interacting with MongoDB through mongoose.
+I have destructured them in various components like orders,products,users for easy usability and readibility

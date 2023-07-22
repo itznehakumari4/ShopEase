@@ -1,0 +1,91 @@
+main {
+  min-height: 80vh;
+}
+
+h3 {
+  padding: 1rem 0;
+}
+
+.rating span {
+  margin: 0.1rem;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding: 1rem 0;
+}
+
+h2 {
+  font-size: 1.4rem;
+  padding: 0.5rem 0;
+}
+
+.bounce-up-link {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.bounce-up-link:hover {
+  transform: translateY(-5px);
+}
+
+.bold-up-link {
+  text-decoration: none;
+  transition: font-weight 0.3s ease;
+  font-weight: normal;
+}
+
+.bold-up-link:hover {
+  font-weight: bold;
+  transform: scale(1.3);
+}
+
+.hover {
+  --b: 0.1em;   /* the thickness of the line */
+  --c: #000000; /* the color */
+  text-decoration: none;
+  
+  color: #0000;
+  background: 
+    linear-gradient(var(--c) 50%,#000 0) 0% calc(100% - var(--_p,0%))/100% 200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
+  -webkit-background-clip: text,padding-box;
+          background-clip: text,padding-box;
+  transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
+}
+.hover:hover {
+  --_p: 100%;
+  --_s: .3s;
+}
+
+
+.carousel-caption {
+  font-family: cursive;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.carousel-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-control-prev {
+  display: none;
+}
+
+.second-caption {
+    font-family: cursive;
+    position: absolute;
+    bottom: 0;
+    left: 265px;
+    right: 123px;
+    padding: 100px;
+    text-align: left;
+}
+
+
