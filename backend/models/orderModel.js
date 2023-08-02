@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const orderSchema = mongoose.Schema(
   {
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId, //This objectid acts is a primary key and the main aim to use this is to maintain a relationship b/w user and product
       required: true,
       ref: "User", // relation between user and product
     },
@@ -26,7 +26,7 @@ const orderSchema = mongoose.Schema(
           required: true,
         },
         product: {
-          type: mongoose.Schema.Types.ObjectId,
+          type: mongoose.Schema.Types.ObjectId, //This objectid acts is a primary key and the main aim to use this is to maintain a relationship b/w user and product
           required: true,
           ref: "Product",
         },
@@ -106,7 +106,7 @@ const orderSchema = mongoose.Schema(
     },
   },
   {
-    timestamps: true,
+    timestamps: true, //The option { timestamps: true } in the schema adds "createdAt" and "updatedAt" fields automatically to track when the order document was created and last updated.
   }
 );
 

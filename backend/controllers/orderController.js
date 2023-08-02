@@ -1,5 +1,6 @@
 import Order from "../models/orderModel.js";
 import asyncHandler from "express-async-handler";
+//The asyncHandler function is a middleware that takes an asynchronous route handler as an argument and returns a new route handler that automatically handles any errors that might occur during the execution of the asynchronous function.
 
 // @desc        Create new order
 // @route       POST /api/orders
@@ -30,7 +31,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
       totalPrice,
     });
 
-    const createdOrder = await order.save();
+    const createdOrder = await order.save(); //the order object is saved to mongodb database
 
     res.status(201);
     res.send(createdOrder); //send the createdOrder response to client
@@ -75,7 +76,7 @@ const getOrderById = asyncHandler(async (req, res) => {
 // @access      Private
 const updateOrderPaid = asyncHandler(async (req, res) => {
   const order = await Order.findById(req.params.id).populate(
-    "user",
+    "user",     //the populate method is used to populate the user field of the order document with the associated user's data. Specifically, it populates the user field with the name and email fields of the associated user. This allows the response to include not only the order details but also the name and email of the user who placed the order.
     "name email"
   );
   if (order) {
@@ -103,7 +104,7 @@ const updateOrderPaid = asyncHandler(async (req, res) => {
 // @route       PUT /api/orders
 // @access      Private (ONLY ADMINS)
 const getOrders_ADMINS_ONLY = asyncHandler(async (req, res) => {
-  const orders = await Order.find({}).populate("user", "_id name");
+  const orders = await Order.find({}).populate("user", "_id name"); //The populate method is used to populate the user field of each order document with the associated user's _id and name fields. This ensures that the response includes not only the order details but also the name and _id of the user who placed the order.
   if (orders) {
     res.send(orders);
   } else {
@@ -116,7 +117,7 @@ const getOrders_ADMINS_ONLY = asyncHandler(async (req, res) => {
 // @route       PUT /api/order/:Orderid/delivery_status
 // @access      Private
 const updateOrderDelivery_ADMINS_ONLY = asyncHandler(async (req, res) => {
-  const order = await Order.findById(req.params.id);
+  const order = await Order.findById(req.params.id); //params means taking id from url only sent in client side
   if (order) {
     order.isDelivered = true;
     order.deliveredAt = Date.now(); 

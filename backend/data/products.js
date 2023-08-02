@@ -1,3 +1,4 @@
+//These Are simply the products
 const products = [
   {
     name: "Airpods",

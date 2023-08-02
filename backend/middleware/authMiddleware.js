@@ -11,7 +11,7 @@ const protect = asyncHandler(async (req, res, next) => {
   let token;
 
   if (
-    req.headers.authorization &&
+    req.headers.authorization && //check for the authorization in header inrequest
     req.headers.authorization.startsWith("Bearer")
   ) {
     try {
@@ -30,7 +30,7 @@ const protect = asyncHandler(async (req, res, next) => {
       next();
     } catch (error) {
       console.error(error);
-      res.status(401);
+      res.status(401); //unauthorized
       throw new Error("Token Failed!");
     }
   }

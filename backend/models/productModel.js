@@ -56,6 +56,6 @@ const productSchema = mongoose.Schema(
   }
 );
 
-const Product = mongoose.model("Product", productSchema); // make the data model named User as per the scheme
+const Product = mongoose.model("Product", productSchema); // make the data model named User as per the schema
 
 export default Product;

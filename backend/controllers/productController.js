@@ -10,23 +10,23 @@ const getProducts = asyncHandler(async (req, res) => {
   const pageSize = process.env.PAGINATION_LIMIT; // contents per page
 
   // getting the page number from url using query
-  const page = Number(req.query.pageNumber) || 1; // Current Page
+  const page = Number(req.query.pageNumber) || 1; // Current Page, If pageNumber is not provided in the query, it defaults to 1, indicating the first page.
 
   // query searches for ? in url
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword //The req.query object in Express.js represents the query parameters in the URL. Query parameters are the parts of the URL that come after the question mark (?), and they are typically used to pass data to the server.
     ? {
-        name: {
+        name: { //products name in database
           $regex: `^${req.query.keyword}`, // only match with the prefix result
-          $options: "i",
+          $options: "i", //it means that searching is case insensitive
         },
       }
     : {};
 
   const count = await Product.countDocuments({ ...keyword }); // count products returned as per prefix keyword, or, all
 
-  const products = await Product.find({ ...keyword })
-    .limit(pageSize)
-    .skip(pageSize * (page - 1)); // return product as per prefix keyword,or, all..
+  const products = await Product.find({ ...keyword }) //Passing a copy of the keyword object ensures that any further modifications or manipulations made to the query condition object (e.g., by other parts of the code) do not affect the original keyword object. It helps maintain the integrity of the original object, which might be used in other parts of the code.
+    .limit(pageSize) //it limits the number of products to be display
+    .skip(pageSize * (page - 1)); // return product as per prefix keyword,or, all.. {{{==>>DND<<==}}}
 
   if (products) {
     res.send({ products, page, pages: Math.ceil(count / pageSize) }); // pages-> total pages to show
@@ -97,7 +97,7 @@ const createProductByAdmin = asyncHandler(async (req, res) => {
   });
 
   const createdProduct = await product.save();
-  res.status(201);
+  res.status(201); //201 status code means a new resource has been successfully created
   res.send(createdProduct);
 });
 
@@ -144,7 +144,7 @@ const createReview = asyncHandler(async (req, res) => {
     );
 
     if (alreadyReviewed) {
-      res.status(400);
+      res.status(400); //400 status code means bad request
       throw new Error("Product Already Reviewed!");
     } else {
       const review = {
@@ -157,7 +157,7 @@ const createReview = asyncHandler(async (req, res) => {
       product.numReviews = product.reviews.length;
       product.rating =
         product.reviews.reduce(
-          (acc, eachReview) => eachReview.rating + acc,
+          (acc, eachReview) => eachReview.rating + acc, //calculating average after taking new rating into consideration
           0
         ) / product.reviews.length;
       await product.save();

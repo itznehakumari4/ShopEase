@@ -14,7 +14,7 @@
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
     "prepareForTesting": "npm install && npm install --prefix frontend && npm run dev"
   },
-  "author": "Abhijit Roy",
+  "author": "Abhijit Roy and Vishal Gautam",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.4.0",

@@ -18,7 +18,7 @@ const reviewSchema = mongoose.Schema(
       // to know which admin created which product
       type: mongoose.Schema.Types.ObjectId,
       required: true,
-      ref: "User", // relation between product and user
+      ref: "User", // relation between user field and usermodel
     },
   },
   {
