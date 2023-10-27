@@ -1,4 +1,4 @@
-Introducing my personal project,  Shopify, where I've strapped everything together with the magic of Bootstrap! It's like using a whole roll of duct tape to hold things in place, but hey, it looks fantastic on desktop (let's just not talk about mobile for now). Don't worry, I'm aware of the mobile quirks, and I promise to work on making it look as fabulous on smaller screens as it does on the big ones. So buckle up, embrace the hilarious charm of strapping things with Bootstrap, and get ready for an e-commerce adventure that's both funny and functional!
+Introducing my project,  ShopEase, where I've strapped everything together with the magic of Bootstrap! It's like using a whole roll of duct tape to hold things in place, but hey, it looks fantastic on desktop (let's just not talk about mobile for now). Don't worry, I'm aware of the mobile quirks, and I promise to work on making it look as fabulous on smaller screens as it does on the big ones. So buckle up, embrace the hilarious charm of strapping things with Bootstrap, and get ready for an e-commerce adventure that's both funny and functional!
 
 
 @Testing
